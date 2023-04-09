@@ -7,7 +7,7 @@ function Footer() {
       <p class="footer-text">
         <a
           class="link-footer"
-          href="https://github.com/Kristina-YA/weather-app"
+          href="https://github.com/Kristina-YA/weather-app-react"
           target="blank"
         >
           Open-source code
