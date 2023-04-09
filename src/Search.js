@@ -47,15 +47,7 @@ export default function Search() {
           </div>
           <div>
             <strong className="temp">{temperature}</strong>{" "}
-            <span className="units">
-              <a href="#" id="celsius-link" class="active">
-                °C
-              </a>{" "}
-              |
-              <a href="#" id="fahrenheit-link">
-                °F
-              </a>
-            </span>
+            <span className="units">°C | °F</span>
           </div>
         </div>
         <div className="wind">
