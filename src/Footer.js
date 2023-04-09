@@ -8,7 +8,6 @@ function Footer() {
         <a
           class="link-footer"
           href="https://github.com/Kristina-YA/weather-app-react"
-          target="blank"
         >
           Open-source code
         </a>
