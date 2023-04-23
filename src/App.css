@@ -1,3 +1,10 @@
+h1 {
+  text-align: center;
+  color: blue;
+}
+h3::first-letter {
+  text-transform: capitalize;
+}
 ul {
   margin: 0;
   padding: 0;
@@ -9,6 +16,12 @@ li {
   padding: 0;
 
   font-size: 16px;
+  font-weight: 100;
+  line-height: 19px;
+  color: rgb(68, 67, 67);
+}
+li:first-letter {
+  text-transform: capitalize;
 }
 a {
   text-decoration: none;
@@ -24,7 +37,6 @@ a {
   padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 5px;
-  text-align: center;
   background-color: rgb(233, 233, 253);
 }
 .wrap {
@@ -36,7 +48,7 @@ a {
   padding: 10px;
 }
 
-.temp {
+.degree {
   font-size: 64px;
   font-weight: 400;
 }
@@ -44,6 +56,10 @@ a {
   position: relative;
   font-size: 16px;
   top: -34px;
+}
+.weather-temperature .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
 }
 .wind {
   margin-top: 60px;
