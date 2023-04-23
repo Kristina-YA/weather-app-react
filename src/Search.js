@@ -9,7 +9,7 @@ export default function Search(props) {
   let [city, setCity] = useState(props.defaultCity);
 
   function showWeather(response) {
-    console.log(response.data);
+    // console.log(response.data);
     setWeatherData({
       ready: true,
       temperature: Math.round(response.data.main.temp),

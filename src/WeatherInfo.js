@@ -3,7 +3,7 @@ import FormatDate from "./FormatDate";
 import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
-  console.log(props.info);
+  // console.log(props.info);
   return (
     <div className="d-flex flex-row mb-2 justify-content-between">
       <div className="p-2">
