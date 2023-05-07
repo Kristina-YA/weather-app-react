@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
+
+import { Blocks } from "react-loader-spinner";
 import "bootstrap/dist/css/bootstrap.css";
 
 export default function Search(props) {
@@ -8,16 +11,16 @@ export default function Search(props) {
   let [city, setCity] = useState(props.defaultCity);
 
   function showWeather(response) {
-    // console.log(response.data);
     setWeatherData({
       ready: true,
-      temperature: Math.round(response.data.main.temp),
-      description: response.data.weather[0].description,
-      humidity: response.data.main.humidity,
+      coordinates: response.data.coordinates,
+      temperature: Math.round(response.data.temperature.current),
+      description: response.data.condition.description,
+      humidity: response.data.temperature.humidity,
       wind: Math.round(response.data.wind.speed),
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-      date: new Date(response.data.dt * 1000),
-      city: response.data.name,
+      icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
+      date: new Date(response.data.time * 1000),
+      city: response.data.city,
     });
   }
 
@@ -25,7 +28,7 @@ export default function Search(props) {
     setCity(event.target.value);
   }
   function searchCity() {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8cd9be374c7c96c39a9fe73f4bf2f055&units=metric`;
+    const url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=4a024tf7d3bb1a1d99bfb3e958o13344&units=metric`;
     axios(url).then(showWeather);
   }
 
@@ -36,7 +39,7 @@ export default function Search(props) {
   if (weatherData.ready) {
     return (
       <div className="container">
-        <form className="mb-3" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div class="row">
             <div class="col-9">
               <input
@@ -58,10 +61,20 @@ export default function Search(props) {
           </div>
         </form>
         <WeatherInfo info={weatherData} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
     searchCity();
-    return "Loading...";
+    return (
+      <Blocks
+        visible={true}
+        height="80"
+        width="80"
+        ariaLabel="blocks-loading"
+        wrapperStyle={{}}
+        wrapperClass="blocks-wrapper"
+      />
+    );
   }
 }

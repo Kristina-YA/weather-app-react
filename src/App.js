@@ -5,7 +5,7 @@ import Footer from "./Footer";
 function App() {
   return (
     <div className="App">
-      <div class="weather-app">
+      <div className="weather-app">
         <h1>Weather APP</h1>
         <Search defaultCity="Kyiv" />
       </div>
